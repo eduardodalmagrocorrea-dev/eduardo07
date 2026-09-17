@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palmeiras — Títulos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-deep: #0b3d24;
+    --green:      #0f6b3a;
+    --gold:       #c9a227;
+    --cream:      #f6f5ef;
+    --ink:        #14201a;
+    --ink-soft:   #55645c;
+    --line:       #1c2b21;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,.wordmark{font-family:'Oswald',sans-serif;margin:0;letter-spacing:.01em;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ===== page = one wireframe, top to bottom ===== */
+  .page{
+    max-width:1100px;margin:24px auto;
+    border:2px solid var(--line);
+    background:#fff;
+  }
+
+  /* ---- ROW 1: header, 3 boxes side by side (as drawn) ---- */
+  .row-header{
+    display:grid;
+    grid-template-columns: 1.15fr 1fr 0.6fr;
+    border-bottom:2px solid var(--line);
+  }
+  .box{border-right:2px solid var(--line);}
+  .row-header .box:last-child{border-right:none;}
+
+  .box-brand{
+    padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:4px;
+  }
+  .box-brand .wordmark{font-size:1.5rem;font-weight:600;color:var(--green-deep);}
+  .box-brand .wordmark span{color:var(--gold);}
+  .box-brand .sub{font-size:0.78rem;color:var(--ink-soft);}
+
+  .box-nav{padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+  .box-nav nav{display:flex;flex-wrap:wrap;gap:14px 22px;font-size:0.92rem;font-weight:500;color:var(--green-deep);}
+  .box-nav nav a{border-bottom:2px solid transparent;padding-bottom:2px;}
+  .box-nav nav a:hover{border-color:var(--gold);}
+
+  .box-crest{
+    display:flex;align-items:center;justify-content:center;padding:16px;background:var(--green-deep);
+  }
+  .box-crest svg{width:56px;height:56px;}
+
+  /* ---- ROW 2: body, left column (text + small image) | right column (big image) ---- */
+  .row-body{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .col-left{
+    display:flex;flex-direction:column;
+    border-right:2px solid var(--line);
+  }
+
+  .box-article{
+    padding:36px 32px;border-bottom:2px solid var(--line);flex:1;
+  }
+  .box-article .eyebrow{
+    display:block;font-size:0.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:10px;
+  }
+  .box-article h1{font-size:1.9rem;font-weight:600;color:var(--green-deep);margin-bottom:16px;line-height:1.15;}
+  .box-article p{margin:0 0 14px;color:var(--ink-soft);font-size:0.98rem;max-width:46ch;}
+  .taca-list{margin:18px 0 0;padding:0;list-style:none;font-size:0.94rem;}
+  .taca-list li{
+    display:flex;justify-content:space-between;gap:12px;
+    padding:9px 0;border-top:1px solid #e2e2d8;
+  }
+  .taca-list li:first-child{border-top:none;}
+  .taca-list .n{font-weight:500;color:var(--ink);}
+  .taca-list .c{font-weight:600;color:var(--green);font-family:'Oswald',sans-serif;}
+
+  .box-thumb{
+    padding:24px 32px;display:flex;align-items:center;gap:16px;background:#eef2ea;
+  }
+  .box-thumb svg{width:52px;height:52px;flex-shrink:0;}
+  .box-thumb .thumb-text b{display:block;font-size:0.95rem;color:var(--green-deep);}
+  .box-thumb .thumb-text span{font-size:0.82rem;color:var(--ink-soft);}
+
+  .col-right{
+    position:relative;min-height:520px;
+    background:var(--green-deep);
+    display:flex;align-items:flex-end;justify-content:center;overflow:hidden;
+  }
+  .col-right svg{position:absolute;inset:0;width:100%;height:100%;}
+  .col-right .caption{
+    position:relative;z-index:2;color:#fff;padding:26px 28px;font-size:0.88rem;
+    background:linear-gradient(to top, rgba(11,61,36,0.92), rgba(11,61,36,0));
+    width:100%;
+  }
+  .col-right .caption b{display:block;font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:600;color:var(--gold);margin-bottom:4px;}
+
+  /* ---- ROW 3: thin footer bar, matches the closing line at bottom of wireframe ---- */
+  .row-foot{
+    padding:14px 24px;display:flex;justify-content:space-between;align-items:center;
+    background:var(--green-deep);color:#cfe0d5;font-size:0.78rem;
+  }
+
+  @media (max-width:760px){
+    .row-header{grid-template-columns:1fr;}
+    .box{border-right:none;border-bottom:2px solid var(--line);}
+    .row-header .box:last-child{border-bottom:none;}
+    .row-body{grid-template-columns:1fr;}
+    .col-left{border-right:none;border-bottom:2px solid var(--line);}
+    .col-right{min-height:320px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ROW 1 — header: text box + text box + image box, igual à foto -->
+  <div class="row-header">
+    <div class="box box-brand">
+      <span class="wordmark">PALME<span>IRAS</span></span>
+      <span class="sub">Sociedade Esportiva Palmeiras — fundado em 1914</span>
+    </div>
+    <div class="box box-nav">
+      <nav>
+        <a href="#titulos">Início</a>
+        <a href="#titulos">Títulos</a>
+        <a href="#titulos">História</a>
+        <a href="#titulos">Contato</a>
+      </nav>
+    </div>
+    <div class="box box-crest">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 L42 12 V24 C42 34 34 42 24 44 C14 42 6 34 6 24 V12 Z" fill="#0f6b3a" stroke="#c9a227" stroke-width="1.5"/>
+        <path d="M24 12 C19 14 16 19 16 25 C16 31 19 35 24 37 C29 35 32 31 32 25 C32 19 29 14 24 12Z" fill="#f6f5ef"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROW 2 — corpo: coluna esquerda (texto grande + imagem pequena) | coluna direita (imagem grande) -->
+  <div class="row-body">
+    <div class="col-left">
+      <div class="box-article" id="titulos">
+        <span class="eyebrow">Sala de Troféus</span>
+        <h1>Uma história escrita em títulos.</h1>
+        <p>Desde 1914, o Verdão construiu a maior coleção de taças nacionais do futebol brasileiro. Três Libertadores, doze Brasileiros e uma torcida que carrega isso como identidade.</p>
+        <ul class="taca-list">
+          <li><span class="n">Campeonato Brasileiro</span><span class="c">12</span></li>
+          <li><span class="n">Campeonato Paulista</span><span class="c">27</span></li>
+          <li><span class="n">Copa do Brasil</span><span class="c">4</span></li>
+          <li><span class="n">Copa Libertadores</span><span class="c">3</span></li>
+          <li><span class="n">Supercopa do Brasil</span><span class="c">1</span></li>
+          <li><span class="n">Recopa Sul-Americana</span><span class="c">1</span></li>
+        </ul>
+      </div>
+      <div class="box-thumb">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 8h20v10c0 6-4 11-10 11S14 24 14 18V8Z" fill="#0f6b3a"/>
+          <rect x="20" y="29" width="8" height="7" fill="#0f6b3a"/>
+          <rect x="15" y="36" width="18" height="4" fill="#c9a227"/>
+        </svg>
+        <div class="thumb-text">
+          <b>Ainda falta o Mundial</b>
+          <span>Único troféu de peso fora da coleção alviverde</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-right">
+      <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="200" cy="470" rx="220" ry="30" fill="#0f6b3a" opacity="0.5"/>
+        <g opacity="0.5">
+          <rect x="30" y="280" width="6" height="190" fill="#c9a227"/>
+          <path d="M8 280 L58 280 L33 258 Z" fill="#c9a227"/>
+          <rect x="360" y="250" width="6" height="220" fill="#c9a227"/>
+          <path d="M338 250 L388 250 L363 226 Z" fill="#c9a227"/>
+        </g>
+        <path d="M150 470 C146 410 150 350 168 300" stroke="#08301c" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <g fill="#17924e">
+          <path d="M168 300 C140 278 108 280 90 258 C112 265 142 270 168 300 Z"/>
+          <path d="M168 300 C150 262 150 224 130 194 C150 212 172 244 168 300 Z"/>
+          <path d="M168 300 C186 260 216 248 234 220 C222 252 198 274 168 300 Z"/>
+          <path d="M168 300 C168 258 182 220 174 182 C190 210 190 254 168 300 Z"/>
+          <path d="M168 300 C196 286 218 300 246 286 C222 306 196 312 168 300 Z"/>
+        </g>
+        <path d="M280 470 C276 428 284 386 300 352" stroke="#08301c" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <g fill="#0f6b3a">
+          <path d="M300 352 C278 336 252 338 236 322 C256 326 280 330 300 352 Z"/>
+          <path d="M300 352 C284 324 284 296 268 274 C284 290 302 316 300 352 Z"/>
+          <path d="M300 352 C316 322 340 314 356 294 C344 320 324 336 300 352 Z"/>
+          <path d="M300 352 C322 342 340 350 362 342 C342 358 322 362 300 352 Z"/>
+        </g>
+        <circle cx="215" cy="452" r="14" fill="#f6f5ef" stroke="#08301c" stroke-width="2"/>
+      </svg>
+      <div class="caption">
+        <b>Allianz Parque</b>
+        Casa do Palmeiras desde 2014
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3 — rodapé fino -->
+  <div class="row-foot">
+    <span>Palmeiras — Atividade prática de Programação para Web · IFSC</span>
+    <span>2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
